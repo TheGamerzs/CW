@@ -30,6 +30,16 @@ if ($results) {
     }
 }
 
+$sql = "SELECT userID, email FROM user";
+$results = mysqli_query($conn, $sql);
+
+
+if ($results) {
+    while ($user = mysqli_fetch_array($results)) {
+        $users[] = $user;
+    }
+}
+
 ?>
 
 <html>
@@ -46,9 +56,9 @@ if ($results) {
             <label for="pitch">Pitch:</label>
             <select name="pitch">
                 <?php
-                foreach ($pitches as $pitch) {
-                    echo '<option value="' . $pitch[0] . '">' . $pitch[0] . '</option>';
-                }
+                    foreach ($pitches as $pitch) {
+                        echo '<option value="' . $pitch[0] . '">' . $pitch[0] . '</option>';
+                    }
                 ?>
             </select>
         </div>
@@ -56,11 +66,12 @@ if ($results) {
 
             <label for="user">User:</label>
             <select name="user">
-                <option value="456">456</option>
-                <option value="785">785</option>
-                <option value="786">786</option>
-                <option value="1024">1024</option>
-                <option value="2048">2048</option>
+                <?php
+                    foreach ($users as $user) {
+                        echo '<option value="' . $user[0] . '">' . $user[0] . ' - ' . $user[1] . '</option>';
+                    }
+                ?>
+
             </select>
         </div>
 
