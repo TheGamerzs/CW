@@ -21,9 +21,8 @@ if (isset($_POST['add'])) {
 }
 
 $sql = "SELECT pitchid FROM pitch";
-$request = mysqli_query($conn, $sql);
+$results = mysqli_query($conn, $sql);
 
-$bookings = [];
 
 if ($results) {
     while ($pitch = mysqli_fetch_array($results)) {
@@ -48,7 +47,7 @@ if ($results) {
             <select name="pitch">
                 <?php
                 foreach ($pitches as $pitch) {
-                    echo '<option value="' . $pitch['pitchid'] . '">' . $pitch['pitchid'] . '</option>';
+                    echo '<option value="' . $pitch[0] . '">' . $pitch[0] . '</option>';
                 }
                 ?>
             </select>
