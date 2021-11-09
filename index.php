@@ -22,6 +22,7 @@
 
     <a href="addPitch.php">Add pitch</a>
 
+    <a href="users.php">View user</a>
     <a href="addUser.php">Add user</a>
 
 </body>
