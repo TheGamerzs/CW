@@ -43,9 +43,7 @@ if ($results) {
             <tr>
 
                 <th>ID</th>
-
                 <th>Date</th>
-
                 <th>Pitch</th>
 
                 <th>UserID</th>
