@@ -1,8 +1,8 @@
 <?php
-
+require_once 'include/header.php';
 require_once 'db.php';
 
-if (isset($_POST['add'])) {
+if (!empty($_POST)) {
 
     $pitch = $_POST['pitch'];
     $user = $_POST['user'];
@@ -10,7 +10,7 @@ if (isset($_POST['add'])) {
     $pitch = mysqli_real_escape_string($conn, $pitch);
     $user = mysqli_real_escape_string($conn, $user);
 
-    $sql = "INSERT INTO booking (`time`, pitch, userid) VALUES (CURDATE(), $pitch, $user)";
+    $sql = "INSERT INTO booking (`time`, pitch, userID) VALUES (CURDATE(), $pitch, $user)";
     $request = mysqli_query($conn, $sql);
 
     if ($request) {
@@ -20,9 +20,8 @@ if (isset($_POST['add'])) {
     }
 }
 
-$sql = "SELECT pitchid FROM pitch";
+$sql = "SELECT pitchID, width, `length` FROM pitch";
 $results = mysqli_query($conn, $sql);
-
 
 if ($results) {
     while ($pitch = mysqli_fetch_array($results)) {
@@ -39,7 +38,6 @@ if ($results) {
         $users[] = $user;
     }
 }
-
 ?>
 
 <html>
@@ -57,13 +55,12 @@ if ($results) {
             <select name="pitch">
                 <?php
                     foreach ($pitches as $pitch) {
-                        echo '<option value="' . $pitch[0] . '">' . $pitch[0] . '</option>';
+                        echo '<option value="' . $pitch[0] . '">' . $pitch[0] . ' - ' . $pitch[1] . 'x' . $pitch[2] . '</option>';
                     }
                 ?>
             </select>
         </div>
         <div>
-
             <label for="user">User:</label>
             <select name="user">
                 <?php
@@ -71,20 +68,13 @@ if ($results) {
                         echo '<option value="' . $user[0] . '">' . $user[0] . ' - ' . $user[1] . '</option>';
                     }
                 ?>
-
             </select>
         </div>
 
         <div>
-            <input name="add" type="submit" value="Submit">
+            <input type="submit" value="Submit">
         </div>
     </form>
-
-    <a href="bookings.php">View bookings</a>
-    <a href="./">Home</a>
-
 </body>
-
-
 
 </html>
