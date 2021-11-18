@@ -29,6 +29,7 @@ if ($results) {
                 <th>ID</th>
                 <th>Width</th>
                 <th>Length</th>
+                <th>Delete</th>
             </tr>
             <?php
             foreach ($pitchs as $pitch) {
@@ -36,6 +37,7 @@ if ($results) {
                 <td>' . $pitch[0] . '</td>
                 <td>' . $pitch[1] . '</td>
                 <td>' . $pitch[2] . '</td>
+                <td><a href="deletePitch.php?pitchID=' . $pitch[0] . '">Delete</a></td>
                 </tr>';
             }
             ?>
