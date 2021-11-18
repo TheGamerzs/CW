@@ -29,6 +29,7 @@ if ($results) {
                 <th>Date</th>
                 <th>Pitch</th>
                 <th>UserID</th>
+                <th>Delete</th>
             </tr>
             <?php
             foreach ($bookings as $booking) {
@@ -37,7 +38,8 @@ if ($results) {
                 <td>' . $booking[1] . '</td>
                 <td>' . $booking[2] . '</td>
                 <td>' . $booking[3] . '</td>
-            </tr>';
+                <td><a href="deleteBooking.php?id=' . $booking[0] . '">Delete</a></td>
+                </tr>';
             }
             ?>
         </tbody>
