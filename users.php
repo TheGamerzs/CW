@@ -1,8 +1,8 @@
 <?php
 require_once 'include/header.php';
-require_once('db.php');
+require_once 'include/db.php';
 
-$sql = "SELECT userID, email FROM `user`";
+$sql = "SELECT userID, username, email FROM `user`";
 $results = mysqli_query($conn, $sql);
 
 if ($results) {
@@ -27,13 +27,17 @@ if ($results) {
         <tbody>
             <tr>
                 <th>ID</th>
+                <th>Username</th>
                 <th>Email</th>
+                <th>Delete</th>
             </tr>
             <?php
             foreach ($users as $user) {
                 echo '<tr>
                 <td>' . $user[0] . '</td>
                 <td>' . $user[1] . '</td>
+                <td>' . $user[2] . '</td>
+                <td><a href="deleteUser.php?id=' . $user[0] . '">Delete</a></td>
                 </tr>';
             }
             ?>
