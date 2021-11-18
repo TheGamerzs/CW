@@ -1,6 +1,6 @@
 <?php
 require_once 'include/header.php';
-require_once 'db.php';
+require_once 'include/db.php';
 
 if (!empty($_POST)) {
 

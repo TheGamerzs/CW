@@ -1,6 +1,6 @@
 <?php
 require_once 'include/header.php';
-require_once 'db.php';
+require_once 'include/db.php';
 
 if (!empty($_POST)) {
     $id = $_POST['id'];
@@ -24,7 +24,7 @@ if (!empty($_POST)) {
     $width = mysqli_real_escape_string($conn, $width);
     $length = mysqli_real_escape_string($conn, $length);
 
-    $sql = "INSERT INTO pitch (id, width, length) VALUES ($id, '$width', '$length')";
+    $sql = "INSERT INTO pitch (pitchID, width, length) VALUES ($id, '$width', '$length')";
     $request = mysqli_query($conn, $sql);
 
     if ($request) {

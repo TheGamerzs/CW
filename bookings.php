@@ -1,6 +1,6 @@
 <?php
 require_once 'include/header.php';
-require_once('db.php');
+require_once 'include/db.php';
 
 $sql = "SELECT bookingID, time, pitch, userID FROM `booking`";
 $results = mysqli_query($conn, $sql);

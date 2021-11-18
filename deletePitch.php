@@ -1,6 +1,6 @@
 <?php
 require_once 'include/header.php';
-require_once 'db.php';
+require_once 'include/db.php';
 
 $id = $_GET['pitchID'];
 
@@ -19,7 +19,7 @@ if (!empty($_POST)) {
 
     $results = mysqli_query($conn, $sql);
 
-    if(mysqli_num_rows($results) == 1) {
+    if($results) {
         header("Location: pitches.php");
     }
 }
