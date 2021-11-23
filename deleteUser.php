@@ -34,7 +34,7 @@ if (!empty($_POST)) {
 
 <body>
     <form method="POST" style="text-align:center;">
-        <h1>Delete User <?php echo htmlspecialchars($_GET['id'],  ENT_QUOTES, 'UTF-8'))?>?</h1>
+        <h1>Delete User <?php echo htmlspecialchars($_GET['id'],  ENT_QUOTES, 'UTF-8')?>?</h1>
         <div>
             <input name="del" type="submit" value="Delete" />
         </div>
