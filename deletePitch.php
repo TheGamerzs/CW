@@ -34,7 +34,7 @@ if (!empty($_POST)) {
 
 <body>
     <form method="POST" style="text-align:center;">
-        <h1>Delete Pitch <?php echo $_GET['pitchID']?>?</h1>
+        <h1>Delete Pitch <?php echo htmlspecialchars($_GET['pitchID'])?>?</h1>
         <div>
             <input name="del" type="submit" value="Delete" />
         </div>

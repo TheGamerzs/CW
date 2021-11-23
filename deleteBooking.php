@@ -46,7 +46,7 @@ if (!empty($_POST)) {
 
 <body>
     <form method="POST" style="text-align:center;">
-        <h1>Delete Booking <?php echo $_GET['id']?>?</h1>
+        <h1>Delete Booking <?php echo htmlspecialchars($_GET['id'])?>?</h1>
         <table id="bookingsTable" style="margin-left: auto; margin-right: auto;">
             <tbody>
                 <tr>
