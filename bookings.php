@@ -2,7 +2,7 @@
 require_once 'include/header.php';
 require_once 'include/db.php';
 
-$sql = "SELECT bookingID, time, pitch, userID FROM `booking`";
+$sql = "SELECT bookingID, start, end, pitch, userID FROM `booking`";
 $results = mysqli_query($conn, $sql);
 $bookings = [];
 
@@ -26,7 +26,8 @@ if ($results) {
         <tbody>
             <tr>
                 <th>ID</th>
-                <th>Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
                 <th>Pitch</th>
                 <th>UserID</th>
                 <th>Delete</th>
@@ -38,6 +39,7 @@ if ($results) {
                 <td>' . $booking[1] . '</td>
                 <td>' . $booking[2] . '</td>
                 <td>' . $booking[3] . '</td>
+                <td>' . $booking[4] . '</td>
                 <td><a href="deleteBooking.php?id=' . $booking[0] . '">Delete</a></td>
                 </tr>';
             }
