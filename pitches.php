@@ -22,7 +22,6 @@ if ($results) {
 </head>
 
 <body>
-
     <table id="pitchsTable">
         <tbody>
             <tr>
