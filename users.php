@@ -19,10 +19,7 @@ if ($results) {
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
-
-
 <body>
-
     <table id="pitchsTable">
         <tbody>
             <tr>
@@ -38,6 +35,7 @@ if ($results) {
                 <td>' . $user[1] . '</td>
                 <td>' . $user[2] . '</td>
                 <td><a href="deleteUser.php?id=' . $user[0] . '">Delete</a></td>
+                <td><a href="viewBookings.php?id=' . $user[0] . '">View Bookings</a></td>
                 </tr>';
             }
             ?>
