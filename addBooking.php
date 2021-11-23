@@ -6,11 +6,15 @@ if (!empty($_POST)) {
 
     $pitch = $_POST['pitch'];
     $user = $_POST['user'];
+    $start_date = $_POST['start-date'];
+    $end_date = $_POST['end-date'];
 
     $pitch = mysqli_real_escape_string($conn, $pitch);
     $user = mysqli_real_escape_string($conn, $user);
+    $start_date = mysqli_real_escape_string($conn, $start_date);
+    $end_date = mysqli_real_escape_string($conn, $end_date);
 
-    $sql = "INSERT INTO booking (`time`, pitch, userID) VALUES (CURDATE(), $pitch, $user)";
+    $sql = "INSERT INTO booking (`start`, `end`, pitch, userID) VALUES ('$start_date', '$end_date', $pitch, $user)";
     $request = mysqli_query($conn, $sql);
 
     if ($request) {
@@ -69,6 +73,14 @@ if ($results) {
                     }
                 ?>
             </select>
+        </div>
+        <div>
+            <label for="Start Date">Start Date:</label>
+            <input type="date" name="start-date">
+        </div>
+        <div>
+            <label for="End Date">End Date:</label>
+            <input type="date" name="end-date">
         </div>
 
         <div>
